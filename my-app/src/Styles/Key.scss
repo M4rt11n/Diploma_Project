@@ -1,0 +1,62 @@
+@import "../Variables/Variables.scss";
+
+.key-menu {
+   position: relative;
+   display: block;
+}
+
+.Key {
+   color: $black;
+   border: none;
+   font-size: 20px;
+   background: none;
+   font-weight: bold;
+   border: 2px solid transparent;
+   cursor: pointer;
+}
+
+.dropdown-menu {
+   display: none;
+   font-size: 13px;
+   position: absolute;
+   z-index: 1;
+   min-width: 200px;
+   background-color: $white;
+   border: 2px solid $darkGrey;
+   border-radius: 0px 15px 15px 15px;
+   box-shadow: 0px 8px 16px 0px $darkGrey;
+}
+
+.dropdown-menu a {
+   color: $black;
+   padding: 8px 10px;
+   text-decoration: none;
+   display: block;
+   transition: 0.1s;
+   cursor: pointer;
+   font-weight: bold;
+}
+
+.dropdown-menu a:hover {
+   color: $black;
+}
+
+.dropdown-menu a:focus {
+   color: $black;
+}
+
+.dropdown-menu #c:hover {
+   border-radius: 0px 13px 0px 0px;
+}
+ 
+.dropdown-menu #h:hover {
+   border-radius: 0px 0px 13px 13px;
+}
+
+.key-menu:hover button {
+   border-radius: 15px 15px 0px 0px;
+}
+ 
+.key-menu:hover .dropdown-menu {
+   display: block;
+}

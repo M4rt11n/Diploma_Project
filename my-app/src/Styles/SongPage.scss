@@ -1,0 +1,60 @@
+@import "../Variables/Variables.scss";
+
+.song-title {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 50px;
+}
+
+.main-info {
+    display: flex;
+    gap: 3px;
+    font-size: x-large;
+    align-items: center;
+}
+
+p span {
+    position: relative;
+
+    &::before {
+        content: attr(data-chord);
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+pre {
+    white-space: break-spaces;
+}
+
+.more-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: larger;
+    gap: 5px;
+}
+
+.sheet-content {
+    display: grid;
+    font-size: 25px;
+    gap: 40px;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: auto auto;
+    grid-auto-flow: column;
+    justify-content: start;
+    justify-items: start;
+    padding-left: 50px;
+    padding-top: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+    .sheet-content {
+      grid-template-columns: 1fr;
+    }
+}
+

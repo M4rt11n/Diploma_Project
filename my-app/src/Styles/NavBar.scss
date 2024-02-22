@@ -1,0 +1,44 @@
+@import '../Variables/Variables.scss';
+
+.Nav {
+    display: flex;
+    justify-content: space-between;
+    background: $black;
+    padding: 8px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.navSetsList {
+    display: flex;
+    justify-content: start;
+    
+    Button {
+        margin-right: 20px;
+        margin-left: 10px;
+        width: 150px;
+    }
+}
+
+
+.navSearchAcc {
+    display: flex;
+    justify-content: space-between;
+
+    Button {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+h1 {
+    color: $white;
+}
+
+
+.title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
