@@ -2,22 +2,76 @@ import React from "react";
 import { useState } from "react";
 import "../Styles/SongPage.scss";
 import "../Styles/Key.scss";
-import Button from "../Elements/Button/Button";
 import SongTitle from "../Components/SongTitle";
 import Text from "../Elements/Text";
 
 import pageData from "./data.json";
-import chord from "./data.json";
+
+function getElementByIndex(arr, index) {
+  if (index >= 0 && index < arr.length) {
+    return arr[index];
+  } else {
+    // Calculate the effective index by taking modulo with array length
+    const effectiveIndex = ((index % arr.length) + arr.length) % arr.length;
+    return arr[effectiveIndex];
+  }
+}
 
 function SongPage() {
-  const [chord, setChord] = useState([
-    { chord: "A" },
-    { chord: "A/C#" },
-    { chord: "D" },
-    { chord: "E" },
-    { chord: "E/G#" },
-    { chord: "F#m" },
-  ]);
+  const [shiftKey, setShiftKey] = useState(0);
+
+  const getChordSymbol = (inputChordSymbol) => {
+    if (!inputChordSymbol) return "";
+
+    let resultSymbol = inputChordSymbol;
+
+    const symbolArray = [
+      "C",
+      "C#",
+      "D",
+      "D#",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "G#",
+      "A",
+      "B",
+      "H",
+    ];
+
+    const symbolIndex = (chord) => symbolArray.indexOf(chord);
+
+    const parse = (n) => {
+      const length = symbolArray.length;
+      if (n >= 0) {
+        return n % length;
+      } else {
+        // Calculate positive index equivalent to the negative index
+        const positiveIndex = length + (n % length);
+        return positiveIndex % length;
+      }
+    };
+
+    resultSymbol = inputChordSymbol
+      .split("/")
+      .map((chord) => {
+        if (!chord.includes("m"))
+          return symbolArray[parse(symbolIndex(chord) + shiftKey)];
+        else
+          return (
+            symbolArray[parse(symbolIndex(chord.replace("m", "")) + shiftKey)] +
+            "m"
+          );
+      })
+      .join("/");
+
+    return resultSymbol;
+  };
+
+  const chordStyles = (offset = 0) => ({
+    "--chord-offset": `${offset}px`,
+  });
 
   return (
     <>
@@ -25,10 +79,33 @@ function SongPage() {
         className="song-title"
         title={pageData.songTitle.title}
         text={"-"}
-        Key={"A"}
-        bpm={"126bpm   4/4"}
-        originalKey={"Оригинална Тоналност: Ab"}
-        author={"Goodness of God - Jenn Jonson, Bethel Music"}
+        Key={pageData.songKey}
+        bpm={pageData.songBpm}
+        originalKey={pageData.songOriginalKey}
+        author={pageData.songAuthor}
+        onClick={(id) => {
+          const symbolArray = [
+            "C",
+            "C#",
+            "D",
+            "D#",
+            "E",
+            "F",
+            "F#",
+            "G",
+            "G#",
+            "A",
+            "B",
+            "H",
+          ];
+
+          const symbolIndex = (chord) => symbolArray.indexOf(chord);
+
+          const clickedItemIndex = symbolIndex(id);
+          const songKeyIndex = symbolIndex(pageData.songKey);
+
+          setShiftKey(clickedItemIndex - songKeyIndex);
+        }}
       />
 
       <div className="sheet-content">
@@ -37,7 +114,12 @@ function SongPage() {
             {block.map((row) => (
               <Text>
                 {row.map((chunk) => (
-                  <span data-chord={chunk.chord}>{chunk.text} </span>
+                  <span
+                    data-chord={getChordSymbol(chunk.chord)}
+                    style={chordStyles(chunk.offset)}
+                  >
+                    {chunk.text}{" "}
+                  </span>
                 ))}
               </Text>
             ))}

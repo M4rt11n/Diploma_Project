@@ -1,8 +1,64 @@
 import React from "react";
 import Pic from "../Elements/Pic";
 
+const keys = [
+  {
+    text: "C / Am",
+    id: "C",
+  },
+  {
+    text: "C# / A#m",
+    id: "C#",
+  },
+  {
+    text: "D / Hm",
+    id: "D",
+  },
+  {
+    text: "D# / Cm",
+    id: "D#",
+  },
+  {
+    text: "E / C#m",
+    id: "E",
+  },
+  {
+    text: "F / Dm",
+    id: "F",
+  },
+  {
+    text: "F# / D#m",
+    id: "F#",
+  },
+  {
+    text: "G / Em",
+    id: "G",
+  },
+  {
+    text: "G# / Fm",
+    id: "G#",
+  },
+  {
+    text: "A / F#m",
+    id: "A",
+  },
+  {
+    text: "B / Gm",
+    id: "B",
+  },
+  {
+    text: "H / G#m",
+    id: "H",
+  },
+];
+
 function SongTitle(props) {
-  const { Pic, title, id, text, Key, author, bpm, originalKey } = props;
+  const { Pic, title, id, text, Key, author, bpm, originalKey, onClick } =
+    props;
+
+  const onItemClick = (id) => {
+    onClick(id);
+  };
 
   return (
     <div className="song-title">
@@ -16,18 +72,11 @@ function SongTitle(props) {
               <strong>{Key}</strong>
             </button>
             <div className="dropdown-menu">
-              <a id="c">C / Am</a>
-              <a id="c#">C# / A#m</a>
-              <a id="d">D / Hm</a>
-              <a id="d#">D# / Cm</a>
-              <a id="e">E / C#m</a>
-              <a id="f">F / Dm</a>
-              <a id="f#">F# / D#m</a>
-              <a id="g">G / Em</a>
-              <a id="g#">G# / Fm</a>
-              <a id="a">A / F#m</a>
-              <a id="b">B / Gm</a>
-              <a id="h">H / G#m</a>
+              {keys.map((key) => (
+                <a id={key.id} onClick={() => onItemClick(key.id)}>
+                  {key.text}
+                </a>
+              ))}
             </div>
           </div>
         }
