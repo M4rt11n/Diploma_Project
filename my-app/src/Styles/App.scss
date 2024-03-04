@@ -1,7 +1,10 @@
 @import "../Variables/Variables.scss";
 
 body {
-    background: $white;
+  background: $white;
 }
 
-
+header {
+  margin: -8px;
+  margin-bottom: 8px;
+}

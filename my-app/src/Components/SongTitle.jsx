@@ -53,8 +53,18 @@ const keys = [
 ];
 
 function SongTitle(props) {
-  const { Pic, title, id, text, Key, author, bpm, originalKey, onClick } =
-    props;
+  const {
+    Pic,
+    title,
+    id,
+    text,
+    Key,
+    author,
+    bpm,
+    originalKey,
+    translator,
+    onClick,
+  } = props;
 
   const onItemClick = (id) => {
     onClick(id);
@@ -85,6 +95,7 @@ function SongTitle(props) {
         <div>{bpm}</div>
         <div>{originalKey}</div>
         <div>{author}</div>
+        <div>{translator}</div>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../Elements/Button/Button";
+import "../Styles/NavBar.scss";
 import "../Styles/SearchBar.scss";
 import Hamburger from "./menu/Hamburger";
 import Title from "../Elements/Title";
@@ -12,20 +13,20 @@ function NavBar() {
 
   return (
     <>
-      <div className="Nav">
+      <div className="nav">
         <div className="shalom-logo">
           <Pic src={ShalomLogo} />
         </div>
 
-        <div className="navSearchAcc">
-          <div className="searchBox">
+        <div className="nav-search-acc">
+          <div className="search-box">
             <input
-              className="searchInput"
+              className="search-input"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Търсиш песен?"
             />
-            <button className="searchButton" href="#">
+            <button className="search-button" href="#">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="29"
@@ -97,8 +98,8 @@ function NavBar() {
             </button>
           </div>
 
-          <Button id="acc">
-            <strong>Настройки</strong> <Hamburger />{" "}
+          <Button id="hamburger">
+            <strong></strong> <Hamburger />{" "}
           </Button>
         </div>
       </div>
