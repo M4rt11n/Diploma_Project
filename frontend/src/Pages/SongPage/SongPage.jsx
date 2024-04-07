@@ -5,29 +5,23 @@ import "../../Styles/Key.scss";
 import SongTitle from "../../Components/SongTitle";
 import Text from "../../Elements/Text";
 
-import pageData from "./data.json";
-
-function getElementByIndex(arr, index) {
-  if (index >= 0 && index < arr.length) {
-    return arr[index];
-  } else {
-    // Calculate the effective index by taking modulo with array length
-    const effectiveIndex = ((index % arr.length) + arr.length) % arr.length;
-    return arr[effectiveIndex];
-  }
-}
-
 function SongPage() {
-  const [songs, setSongs] = useState(null);
+  const [song, setSong] = useState(null);
 
   useEffect(() => {
     const fetchSongs = async () => {
-      const response = await fetch("https://localhost:4000/api/songs");
-      const json = await response.json();
+      const id = window.location.href.split("/").pop();
 
-      if (response.ok) {
-        setSongs(json);
-      }
+      const response = await fetch(`http://localhost:4000/api/songs/${id}`);
+      const songJson = await response.json();
+
+      const songRemap = {
+        ...songJson,
+        id: songJson._id,
+        songTitle: songJson.songTitle[0],
+      };
+
+      setSong(songRemap);
     };
 
     fetchSongs();
@@ -90,58 +84,66 @@ function SongPage() {
 
   return (
     <>
-      <SongTitle
-        className="song-title"
-        title={pageData.songTitle.title}
-        text={"-"}
-        Key={pageData.songKey}
-        bpm={pageData.songBPM}
-        originalKey={pageData.songOriginalKey}
-        author={pageData.songAuthor}
-        translator={"Превод: " + pageData.songTranslator}
-        onClick={(id) => {
-          const symbolArray = [
-            "C",
-            "C#",
-            "D",
-            "D#",
-            "E",
-            "F",
-            "F#",
-            "G",
-            "G#",
-            "A",
-            "B",
-            "H",
-          ];
+      {song ? (
+        <>
+          <SongTitle
+            className="song-title"
+            title={song.songTitle.title}
+            text={"-"}
+            Key={song.songKey}
+            bpm={song.songBPM}
+            originalKey={song.songOriginalKey}
+            author={song.songAuthor}
+            translator={"Превод: " + song.songTranslator}
+            onClick={(id) => {
+              const symbolArray = [
+                "C",
+                "C#",
+                "D",
+                "D#",
+                "E",
+                "F",
+                "F#",
+                "G",
+                "G#",
+                "A",
+                "B",
+                "H",
+              ];
 
-          const symbolIndex = (chord) => symbolArray.indexOf(chord);
+              const symbolIndex = (chord) => symbolArray.indexOf(chord);
 
-          const clickedItemIndex = symbolIndex(id);
-          const songKeyIndex = symbolIndex(pageData.songKey);
+              const clickedItemIndex = symbolIndex(id);
+              const songKeyIndex = symbolIndex(song.songKey);
 
-          setShiftKey(clickedItemIndex - songKeyIndex + 2);
-        }}
-      />
+              setShiftKey(clickedItemIndex - songKeyIndex);
+            }}
+          />
 
-      <div className="sheet-content">
-        {pageData.songData.map((block, i) => (
-          <div key={i}>
-            {block.map((row) => (
-              <Text>
-                {row.map((chunk) => (
-                  <span
-                    data-chord={getChordSymbol(chunk.chord)}
-                    style={chordStyles(chunk.offset)}
-                  >
-                    {chunk.text}{" "}
-                  </span>
+          <div className="sheet-content">
+            {song.songData.map((block, i) => (
+              <div key={i}>
+                {block.map((row) => (
+                  <Text>
+                    {row.map((chunk) => (
+                      <span
+                        data-chord={getChordSymbol(chunk.chord)}
+                        style={chordStyles(chunk.offset)}
+                      >
+                        {chunk.text}{" "}
+                      </span>
+                    ))}
+                  </Text>
                 ))}
-              </Text>
+              </div>
             ))}
           </div>
-        ))}
-      </div>
+        </>
+      ) : (
+        <div className="loader">
+          <h3>Loading</h3>
+        </div>
+      )}
     </>
   );
 }
