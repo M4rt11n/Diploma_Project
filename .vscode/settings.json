@@ -1,5 +1,6 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "cSpell.language": "en,bg-BG",
-  "cSpell.words": ["Дани", "Севливео", "Шалом"]
+  "cSpell.words": ["Дани", "Севливео", "Шалом"],
+  "cSpell.ignoreWords": ["mssg"]
 }
