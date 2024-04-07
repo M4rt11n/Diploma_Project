@@ -97,10 +97,10 @@ function NavBar() {
               </svg>
             </button>
           </div>
-
+          {/* 
           <Button id="hamburger">
             <strong></strong> <Hamburger />{" "}
-          </Button>
+          </Button> */}
         </div>
       </div>
     </>
