@@ -12,7 +12,7 @@ function SongListItem({ song }) {
           <h4>{song.songKey}</h4>
         </div>
         <div>
-          <h5>{song.songTranslator}</h5>
+          <h5>Превод: {song.songTranslator}</h5>
         </div>
       </div>
       <div className="list-part2">

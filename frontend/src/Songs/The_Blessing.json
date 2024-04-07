@@ -6,7 +6,7 @@
   "songBPM": "140bpm - 4/4",
   "songOriginalKey": "Оригинална Тоналност: H",
   "songAuthor": "The Blessing - Kari Jobe, Cody Carnes",
-  "songTranslator": "Шалом Севливео",
+  "songTranslator": "Дани Танев",
   "songData": [
     [
       [
@@ -53,7 +53,9 @@
         },
         {
           "text": "към тебе,"
-        },
+        }
+      ],
+      [
         {
           "text": "мир",
           "chord": "H/D#"
@@ -78,7 +80,7 @@
         },
         {
           "text": "Амин!",
-          "chord": "G#m E"
+          "chord": "G#m"
         },
         {
           "text": "Амин!",
@@ -192,21 +194,27 @@
         {
           "text": "теб е! /2",
           "chord": "G#m"
-        },
+        }
+      ],
+      [
         {
           "text": "Откъм"
         },
         {
           "text": "теб е! /2",
           "chord": "E"
-        },
+        }
+      ],
+      [
         {
           "text": "Откъм"
         },
         {
           "text": "теб е! /2",
           "chord": "H"
-        },
+        }
+      ],
+      [
         {
           "text": "Откъм"
         },
