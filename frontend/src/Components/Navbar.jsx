@@ -33,6 +33,7 @@ function NavBar() {
                 height="29"
                 viewBox="0 0 29 29"
                 fill="none"
+                href="https://www.shalom-sevlievo.church/"
               >
                 <g clip-path="url(#clip0_2_17)">
                   <g filter="url(#filter0_d_2_17)">
