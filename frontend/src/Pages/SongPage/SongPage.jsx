@@ -12,7 +12,9 @@ function SongPage() {
     const fetchSongs = async () => {
       const id = window.location.href.split("/").pop();
 
-      const response = await fetch(`http://localhost:4000/api/songs/${id}`);
+      const response = await fetch(
+        `${process.env.REACT_APP_API_ADDRESS}/songs/${id}`
+      );
       const songJson = await response.json();
 
       const songRemap = {

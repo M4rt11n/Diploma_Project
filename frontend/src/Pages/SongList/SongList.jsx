@@ -6,7 +6,9 @@ function SongList() {
 
   useEffect(() => {
     const fetchSongs = async () => {
-      const response = await fetch("http://localhost:4000/api/songs");
+      const response = await fetch(
+        `${process.env.REACT_APP_API_ADDRESS}/songs`
+      );
       const songsJson = await response.json();
 
       const songsRemap = songsJson.map((song) => ({
