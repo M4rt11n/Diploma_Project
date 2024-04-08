@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Elements/Button/Button";
 import "../Styles/NavBar.scss";
 import "../Styles/SearchBar.scss";
@@ -9,21 +9,43 @@ import ShalomLogo from "../Assets/Images/ShalomLogo.svg";
 import "../Styles/Pic.scss";
 
 function NavBar() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([""]);
+  /*const [songs, setSongs] = useState([]);
+  
+
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_ADDRESS}/songs`)
+      .then((res) => {
+        setSongs(res.songs);
+        setSearchResults(res.songs);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  const Filter = (event) => {
+    setSearchResults(
+      songs.filter((f) => f.name.toLowerCase().includes(event.target.value))
+    );
+  }; */
 
   return (
     <>
       <div className="nav">
         <div className="shalom-logo">
-          <Pic src={ShalomLogo} />
+          <Pic
+            src={ShalomLogo}
+            onClick={() => {
+              <a href="https://www.shalom-sevlievo.church/"></a>;
+            }}
+          />
         </div>
 
         <div className="nav-search-acc">
           <div className="search-box">
             <input
               className="search-input"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              value={searchResults}
+              onChange={(e) => setSearchResults(e.target.value)}
               placeholder="Търсиш песен?"
             />
             <button className="search-button" href="#">
@@ -34,6 +56,7 @@ function NavBar() {
                 viewBox="0 0 29 29"
                 fill="none"
               >
+                <a href="https://www.shalom-sevlievo.church/"></a>
                 <g clip-path="url(#clip0_2_17)">
                   <g filter="url(#filter0_d_2_17)">
                     <path
