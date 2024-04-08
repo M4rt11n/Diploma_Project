@@ -32,12 +32,7 @@ function NavBar() {
     <>
       <div className="nav">
         <div className="shalom-logo">
-          <Pic
-            src={ShalomLogo}
-            onClick={() => {
-              <a href="https://www.shalom-sevlievo.church/"></a>;
-            }}
-          />
+          <Pic src={ShalomLogo} />
         </div>
 
         <div className="nav-search-acc">
