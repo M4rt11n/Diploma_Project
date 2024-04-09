@@ -7,6 +7,7 @@ import Title from "../Elements/Title";
 import Pic from "../Elements/Pic";
 import ShalomLogo from "../Assets/Images/ShalomLogo.svg";
 import "../Styles/Pic.scss";
+import Link from "../Elements/Link";
 
 function NavBar() {
   const [searchResults, setSearchResults] = useState([""]);
@@ -113,6 +114,12 @@ function NavBar() {
                   </clipPath>
                 </defs>
               </svg>
+              <input
+                className="search-input-2"
+                value={searchResults}
+                onChange={(e) => setSearchResults(e.target.value)}
+                placeholder="Търсиш песен?"
+              />
             </button>
           </div>
           {/* 

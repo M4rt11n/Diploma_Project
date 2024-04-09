@@ -2,7 +2,7 @@
 
 .search-box {
   display: flex;
-  max-width: 270px;
+  max-width: 300px;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
@@ -26,24 +26,44 @@
   display: inline-block;
   transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
-/*hover effect*/
-.search-button:hover {
+/*button pressing effect*/
+.search-button:active {
   color: #fff;
   background-color: #1a1a1a;
   box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
   transform: translateY(-3px);
 }
-/*button pressing effect*/
-.search-button:active {
-  box-shadow: none;
-  transform: translateY(0);
-}
 
 .search-input {
+  display: inline;
   border: none;
   background: none;
   outline: none;
   color: $white;
   font-size: 15px;
   padding: 24px 46px 24px 26px;
+}
+
+.search-input-2 {
+  display: none;
+}
+
+/* Responsive Search Bar for Phones */
+@media (max-width: 400px) {
+  .search-input {
+    display: none;
+  }
+  .search-box {
+    @media (hover: hover) and (pointer: course) {
+      .search-input-2 {
+        display: inline;
+        border: none;
+        background: none;
+        outline: none;
+        color: $white;
+        font-size: 15px;
+        padding: 24px 46px 24px 26px;
+      }
+    }
+  }
 }

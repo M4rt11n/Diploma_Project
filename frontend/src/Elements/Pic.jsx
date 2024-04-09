@@ -1,14 +1,9 @@
 import React from "react";
 
-
 function Pic(props) {
-    const {
-        src
-    } = props
+  const { src } = props;
 
-    return (
-        <img src={src} />
-    )
+  return <img src={src}></img>;
 }
 
-export default Pic
+export default Pic;

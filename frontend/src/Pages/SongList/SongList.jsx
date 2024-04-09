@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SongListItem from "../../Components/SongListItem";
+import "../../Styles/Loading.scss";
 
 function SongList() {
   const [songs, setSongs] = useState([]);
@@ -28,8 +29,9 @@ function SongList() {
       {songs.length ? (
         songs.map((song) => <SongListItem song={song} key={song.id} />)
       ) : (
-        <div>
-          <h3>Loading</h3>
+        <div class="loader">
+          <label>Redirecting...</label>
+          <div class="loading"></div>
         </div>
       )}
     </>

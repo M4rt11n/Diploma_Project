@@ -4,6 +4,7 @@ import "../../Styles/SongPage.scss";
 import "../../Styles/Key.scss";
 import SongTitle from "../../Components/SongTitle";
 import Text from "../../Elements/Text";
+import "../../Styles/Loading.scss";
 
 function SongPage() {
   const [song, setSong] = useState(null);
@@ -142,8 +143,9 @@ function SongPage() {
           </div>
         </>
       ) : (
-        <div className="loader">
-          <h3>Loading</h3>
+        <div class="loader">
+          <label>Redirecting...</label>
+          <div class="loading"></div>
         </div>
       )}
     </>
