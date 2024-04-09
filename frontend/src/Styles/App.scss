@@ -8,3 +8,9 @@ header {
   margin: -8px;
   margin-bottom: 8px;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
