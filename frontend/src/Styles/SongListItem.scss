@@ -1,6 +1,7 @@
 @import "../Variables/Variables.scss";
 
 .listed-song {
+  display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 1px;
@@ -35,7 +36,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .list-part2 {
     display: none;
   }
