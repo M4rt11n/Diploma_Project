@@ -47,11 +47,11 @@ pre {
 
 .sheet-content {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
   font-size: 25px;
   gap: 40px;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto auto;
-  grid-auto-flow: column;
   justify-content: start;
   justify-items: start;
   padding-left: 50px;
@@ -59,6 +59,34 @@ pre {
   padding-top: 10px;
 }
 
+/* Responsive for Tablets */
+@media (max-width: 800px) {
+  .song-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0px;
+  }
+  .more-info {
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    align-items: center;
+    padding-top: 15px;
+  }
+  .sheet-content {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-auto-flow: row;
+    grid-template-rows: auto auto auto;
+    font-size: medium;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+}
+
+/* Responsive for Smartphones */
 @media (max-width: 400px) {
   .song-title {
     display: flex;
@@ -79,28 +107,5 @@ pre {
     font-size: larger;
     padding-right: 15px;
     padding-left: 15px;
-  }
-}
-
-@media (max-width: 800px) {
-  .song-title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left: 0px;
-  }
-  .more-info {
-    display: flex;
-    flex-direction: column;
-    font-size: medium;
-    align-items: center;
-    padding-top: 15px;
-  }
-  .sheet-content {
-    display: flex;
-    font-size: larger;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 60px;
   }
 }
