@@ -35,3 +35,9 @@
     margin: 0px 0px 0px 0px;
   }
 }
+
+@media (max-width: 400px) {
+  .list-part2 {
+    display: none;
+  }
+}
