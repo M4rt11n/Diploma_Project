@@ -8,8 +8,7 @@ function SongListItem({ song }) {
     <Link to={`/song/${song.id}`} className="listed-song">
       <div className="list-part1">
         <div className="main-song-title">
-          <h4>{song.songTitle.title}</h4>
-          <h4>{song.songKey}</h4>
+          <h4>{song.songTitle.title}</h4>-<h4>{song.songKey}</h4>
         </div>
         <div>
           <h5>Превод: {song.songTranslator}</h5>

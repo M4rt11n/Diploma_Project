@@ -119,7 +119,7 @@ function SongPage() {
               const clickedItemIndex = symbolIndex(id);
               const songKeyIndex = symbolIndex(song.songKey);
 
-              setShiftKey(clickedItemIndex - songKeyIndex + 2);
+              setShiftKey(clickedItemIndex - songKeyIndex);
             }}
           />
 

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import SongListItem from "../../Components/SongListItem";
 import "../../Styles/Loading.scss";
+import NavBar from "../../Components/Navbar";
 
 function SongList() {
   const [songs, setSongs] = useState([]);
+  const [searchResult, setSearchResult] = useState([""]);
 
   useEffect(() => {
     const fetchSongs = async () => {
@@ -27,7 +29,13 @@ function SongList() {
   return (
     <>
       {songs.length ? (
-        songs.map((song) => <SongListItem song={song} key={song.id} />)
+        songs
+          /* .filter((song) => {
+            return search.toLowerCase() === ""
+              ? song
+              : song.songTitle.toLowerCase().includes(search);
+          }) */
+          .map((song) => <SongListItem song={song} key={song.id} />)
       ) : (
         <div class="loader">
           <label>Redirecting...</label>
