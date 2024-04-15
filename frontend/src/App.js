@@ -14,10 +14,10 @@ import SongList from "./Pages/SongList/SongList";
 function App() {
   return (
     <>
-      <header>
-        <NavBar />
-      </header>
       <Router>
+        <header>
+          <NavBar />
+        </header>
         <main>
           <Routes>
             <Route path="/" element={<SongList />} />

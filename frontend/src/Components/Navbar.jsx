@@ -7,41 +7,44 @@ import Title from "../Elements/Title";
 import Pic from "../Elements/Pic";
 import ShalomLogo from "../Assets/Images/ShalomLogo.svg";
 import "../Styles/Pic.scss";
-import Link from "../Elements/Link";
+import { Link } from "react-router-dom";
 
 function NavBar() {
-  const [searchResults, setSearchResults] = useState([""]);
-  /*const [songs, setSongs] = useState([]);
+  const [searchQuery, setSearchQuery] = useState([""]);
+  const [songs, setSongs] = useState([]);
   
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_ADDRESS}/songs`)
-      .then((res) => {
-        setSongs(res.songs);
-        setSearchResults(res.songs);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+    const search = async () => {
+      const res = await fetch(`${process.env.REACT_APP_API_ADDRESS}/search?title=${searchQuery}`)
+      const response = await res.json();
+      console.log(response)
+    }
+
+    if(searchQuery) search();
+  }, [searchQuery]);
 
   const Filter = (event) => {
     setSearchResults(
       songs.filter((f) => f.name.toLowerCase().includes(event.target.value))
     );
-  }; */
+  };
 
   return (
     <>
       <div className="nav">
         <div className="shalom-logo">
-          <Pic src={ShalomLogo} />
+          <Link to={"/"}>
+            <Pic src={ShalomLogo} />
+          </Link>
         </div>
 
         <div className="nav-search-acc">
           <div className="search-box">
             <input
               className="search-input"
-              value={searchResults}
-              onChange={(e) => setSearchResults(e.target.value)}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Търсиш песен?"
             />
             <button className="search-button" href="#">
@@ -114,18 +117,8 @@ function NavBar() {
                   </clipPath>
                 </defs>
               </svg>
-              <input
-                className="search-input-2"
-                value={searchResults}
-                onChange={(e) => setSearchResults(e.target.value)}
-                placeholder="Търсиш песен?"
-              />
             </button>
           </div>
-          {/* 
-          <Button id="hamburger">
-            <strong></strong> <Hamburger />{" "}
-          </Button> */}
         </div>
       </div>
     </>
