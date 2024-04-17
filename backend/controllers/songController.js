@@ -13,7 +13,9 @@ const searchSong = async (req, res) => {
   const { title } = req.query; // Get the search query parameter
 
   if (!title) {
-    return res.status(400).json({ error: "Please provide a search term (title)" });
+    return res
+      .status(400)
+      .json({ error: "Please provide a search term (title)" });
   }
 
   try {
@@ -21,9 +23,9 @@ const searchSong = async (req, res) => {
 
     // Configure fuse.js options
     const options = {
-      keys: ["songTitle"], // Search by songTitle field
-      threshold: 0.6, // Adjust threshold for desired fuzziness (0-1)
-      includeMatches: true, // Include matched terms in results
+      keys: ["songTitle.title"], // Search by songTitle field
+      threshold: 0.2, // Adjust threshold for desired fuzziness (0-1)
+      includeMatches: false, // Include matched terms in results
     };
 
     const fuse = new Fuse(allSongs, options); // Create fuse instance

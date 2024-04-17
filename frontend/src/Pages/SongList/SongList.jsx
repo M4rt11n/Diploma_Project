@@ -1,49 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SongListItem from "../../Components/SongListItem";
 import "../../Styles/Loading.scss";
-import NavBar from "../../Components/Navbar";
 
-function SongList() {
-  const [songs, setSongs] = useState([]);
-  const [searchResult, setSearchResult] = useState([""]);
-
-  useEffect(() => {
-    const fetchSongs = async () => {
-      const response = await fetch(
-        `${process.env.REACT_APP_API_ADDRESS}/songs`
-      );
-      const songsJson = await response.json();
-
-      const songsRemap = songsJson.map((song) => ({
-        ...song,
-        id: song._id,
-        songTitle: song.songTitle[0],
-      }));
-
-      setSongs(songsRemap);
-    };
-
-    fetchSongs();
-  }, []);
+function SongList({ songs }) {
+  const SongsListing = () => (
+    <div className="songs">
+      {songs.map((song) => (
+        <SongListItem song={song} key={song.id} />
+      ))}
+    </div>
+  );
 
   return (
     <>
-      {songs.length ? (
-        songs
-          /* .filter((song) => {
-            return search.toLowerCase() === ""
-              ? song
-              : song.songTitle.toLowerCase().includes(search);
-          }) */
-          .map((song) => <SongListItem song={song} key={song.id} />)
-      ) : (
-        <div className="loader">
-          <label>Redirecting...</label>
-          <div className="loading"></div>
-        </div>
-      )}
+      {songs && songs.length > 0 && <SongsListing />}
+      {songs && songs.length === 0 && <NoResultsComponent />}
+      {!songs && <LoadingComponent />}
     </>
   );
 }
+
+const LoadingComponent = () => (
+  <div className="loader">
+    <label>Loading...</label>
+    <div className="loading"></div>
+  </div>
+);
+
+const NoResultsComponent = () => (
+  <div className="loader">
+    <p>Няма резултат</p>
+  </div>
+);
 
 export default SongList;

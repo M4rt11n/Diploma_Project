@@ -10,6 +10,8 @@ const {
 
 const router = express.Router();
 
+router.get("/search", searchSong);
+
 // GET ALL songs
 router.get("/", getSongs);
 
@@ -18,9 +20,6 @@ router.get("/:id", getSong);
 
 // POST a single song
 router.post("/", createSong);
-
-router.get("/search", searchSong);
-
 
 // DELETE a single song
 router.delete("/:id", deleteSong);

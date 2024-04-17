@@ -8,28 +8,33 @@ import Pic from "../Elements/Pic";
 import ShalomLogo from "../Assets/Images/ShalomLogo.svg";
 import "../Styles/Pic.scss";
 import { Link } from "react-router-dom";
+import { songsSearchAdapter } from "../Utility/songs-adapter";
+import { debounce } from "lodash";
 
-function NavBar() {
-  const [searchQuery, setSearchQuery] = useState([""]);
-  const [songs, setSongs] = useState([]);
+function NavBar({ setSongs, loadSongsCache }) {
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const search = async () => {
       const res = await fetch(
-        `${process.env.REACT_APP_API_ADDRESS}/search?title=${searchQuery}`
+        `${process.env.REACT_APP_API_ADDRESS}/songs/search?title=${searchQuery}`
       );
-      const response = await res.json();
-      console.log(response);
+      const songsJson = await res.json();
+
+      const songsRemap = songsSearchAdapter(songsJson);
+
+      setSongs(songsRemap);
     };
 
-    if (searchQuery) search();
-  }, [searchQuery]);
+    const debouncedSearch = debounce(search, 300); // Adjust the debounce delay as needed (300 milliseconds here)
 
-  const Filter = (event) => {
-    // setSearchResults(
-    //   songs.filter((f) => f.name.toLowerCase().includes(event.target.value))
-    // );
-  };
+    if (searchQuery) debouncedSearch();
+    else loadSongsCache();
+
+    return () => {
+      debouncedSearch.cancel(); // Cancel the debounced function on component unmount
+    };
+  }, [searchQuery]);
 
   return (
     <>
