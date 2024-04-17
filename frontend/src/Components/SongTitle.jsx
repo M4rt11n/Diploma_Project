@@ -82,8 +82,8 @@ function SongTitle(props) {
               <strong>{Key}</strong>
             </button>
             <div className="dropdown-menu">
-              {keys.map((key) => (
-                <a id={key.id} onClick={() => onItemClick(key.id)}>
+              {keys.map((key, i) => (
+                <a id={key.id} key={i} onClick={() => onItemClick(key.id)}>
                   {key.text}
                 </a>
               ))}

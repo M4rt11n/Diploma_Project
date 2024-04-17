@@ -37,9 +37,9 @@ function SongList() {
           }) */
           .map((song) => <SongListItem song={song} key={song.id} />)
       ) : (
-        <div class="loader">
+        <div className="loader">
           <label>Redirecting...</label>
-          <div class="loading"></div>
+          <div className="loading"></div>
         </div>
       )}
     </>

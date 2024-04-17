@@ -126,10 +126,11 @@ function SongPage() {
           <div className="sheet-content">
             {song.songData.map((block, i) => (
               <div key={i}>
-                {block.map((row) => (
-                  <Text>
-                    {row.map((chunk) => (
+                {block.map((row, k) => (
+                  <Text key={k}>
+                    {row.map((chunk, j) => (
                       <span
+                        key={j}
                         data-chord={getChordSymbol(chunk.chord)}
                         style={chordStyles(chunk.offset)}
                       >
@@ -143,9 +144,9 @@ function SongPage() {
           </div>
         </>
       ) : (
-        <div class="loader">
+        <div className="loader">
           <label>Redirecting...</label>
-          <div class="loading"></div>
+          <div className="loading"></div>
         </div>
       )}
     </>
