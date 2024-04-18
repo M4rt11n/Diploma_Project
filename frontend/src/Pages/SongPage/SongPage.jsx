@@ -5,9 +5,11 @@ import "../../Styles/Key.scss";
 import SongTitle from "../../Components/SongTitle";
 import Text from "../../Elements/Text";
 import "../../Styles/Loading.scss";
+import { shiftChord, symbolIndex } from "../../Utility/key-helpers";
 
 function SongPage() {
   const [song, setSong] = useState(null);
+  const [shiftKey, setShiftKey] = useState(0);
 
   useEffect(() => {
     const fetchSongs = async () => {
@@ -30,60 +32,25 @@ function SongPage() {
     fetchSongs();
   }, []);
 
-  const [shiftKey, setShiftKey] = useState(0);
-
-  const getChordSymbol = (inputChordSymbol) => {
-    if (!inputChordSymbol) return "";
-
-    let resultSymbol = inputChordSymbol;
-
-    const symbolArray = [
-      "C",
-      "C#",
-      "D",
-      "D#",
-      "E",
-      "F",
-      "F#",
-      "G",
-      "G#",
-      "A",
-      "B",
-      "H",
-    ];
-
-    const symbolIndex = (chord) => symbolArray.indexOf(chord);
-
-    const parse = (n) => {
-      const length = symbolArray.length;
-      if (n >= 0) {
-        return n % length;
-      } else {
-        // Calculate positive index equivalent to the negative index
-        const positiveIndex = length + (n % length);
-        return positiveIndex % length;
-      }
-    };
-
-    resultSymbol = inputChordSymbol
-      .split("/")
-      .map((chord) => {
-        if (!chord.includes("m"))
-          return symbolArray[parse(symbolIndex(chord) + shiftKey)];
-        else
-          return (
-            symbolArray[parse(symbolIndex(chord.replace("m", "")) + shiftKey)] +
-            "m"
-          );
-      })
-      .join("/");
-
-    return resultSymbol;
-  };
+  const getChordSymbol = (inputChordSymbol) =>
+    shiftChord(inputChordSymbol, shiftKey);
 
   const chordStyles = (offset = 0) => ({
     "--chord-offset": `${offset}px`,
   });
+
+  const changeKey = (id) => {
+    const clickedItemIndex = symbolIndex(id);
+    const songKeyIndex = symbolIndex(song.songKey.split(" /")[0]);
+
+    setShiftKey(clickedItemIndex - songKeyIndex);
+  };
+
+  const getSongKey = (songKey, shiftKey) =>
+    songKey
+      .split(" / ")
+      .map((key) => shiftChord(key, shiftKey))
+      .join(" / ");
 
   return (
     <>
@@ -93,34 +60,12 @@ function SongPage() {
             className="song-title"
             title={song.songTitle.title}
             text={"-"}
-            Key={song.songKey}
+            Key={getSongKey(song.songKey, shiftKey)}
             bpm={song.songBPM}
             originalKey={song.songOriginalKey}
             author={song.songAuthor}
             translator={"Превод: " + song.songTranslator}
-            onClick={(id) => {
-              const symbolArray = [
-                "C",
-                "C#",
-                "D",
-                "D#",
-                "E",
-                "F",
-                "F#",
-                "G",
-                "G#",
-                "A",
-                "B",
-                "H",
-              ];
-
-              const symbolIndex = (chord) => symbolArray.indexOf(chord);
-
-              const clickedItemIndex = symbolIndex(id);
-              const songKeyIndex = symbolIndex(song.songKey);
-
-              setShiftKey(clickedItemIndex - songKeyIndex);
-            }}
+            onClick={(id) => changeKey(id)}
           />
 
           <div className="sheet-content">
