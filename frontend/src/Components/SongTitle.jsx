@@ -7,7 +7,7 @@ const keys = [
     id: "C",
   },
   {
-    text: "C# / A#m",
+    text: "C# / Bm",
     id: "C#",
   },
   {
@@ -49,6 +49,10 @@ const keys = [
   {
     text: "H / G#m",
     id: "H",
+  },
+  {
+    text: "Numbers",
+    id: "numbers",
   },
 ];
 

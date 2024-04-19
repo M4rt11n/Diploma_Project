@@ -5,11 +5,19 @@ import "../../Styles/Key.scss";
 import SongTitle from "../../Components/SongTitle";
 import Text from "../../Elements/Text";
 import "../../Styles/Loading.scss";
-import { shiftChord, symbolIndex } from "../../Utility/key-helpers";
+import {
+  shiftChord,
+  symbolIndex,
+  transformChordToNumber,
+} from "../../Utility/key-helpers";
 
 function SongPage() {
   const [song, setSong] = useState(null);
   const [shiftKey, setShiftKey] = useState(0);
+  const [useNumbers, setUseNumbers] = useState(false);
+
+  let songKey = song?.songKey?.split(" /")[0];
+  let songKeyIndex = song?.songKey && symbolIndex(songKey);
 
   useEffect(() => {
     const fetchSongs = async () => {
@@ -32,16 +40,25 @@ function SongPage() {
     fetchSongs();
   }, []);
 
-  const getChordSymbol = (inputChordSymbol) =>
-    shiftChord(inputChordSymbol, shiftKey);
+  const getChordSymbol = (inputChordSymbol) => {
+    if (!inputChordSymbol) return;
+    if (!useNumbers) return shiftChord(inputChordSymbol, shiftKey);
+
+    return transformChordToNumber(inputChordSymbol, songKey);
+  };
 
   const chordStyles = (offset = 0) => ({
     "--chord-offset": `${offset}px`,
   });
 
   const changeKey = (id) => {
+    const NUMBERS_ID = "numbers";
+
+    if (id === NUMBERS_ID) return setUseNumbers(true);
+
+    setUseNumbers(false);
+
     const clickedItemIndex = symbolIndex(id);
-    const songKeyIndex = symbolIndex(song.songKey.split(" /")[0]);
 
     setShiftKey(clickedItemIndex - songKeyIndex);
   };
