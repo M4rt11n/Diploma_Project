@@ -87,7 +87,7 @@ function SongPage() {
 
           <div className="sheet-content">
             {song.songData.map((block, i) => (
-              <div key={i}>
+              <div key={i} className="box">
                 {block.map((row, k) => (
                   <Text key={k}>
                     {row.map((chunk, j) => (
