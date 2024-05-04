@@ -1,0 +1,327 @@
+{
+  "songTitle": {
+    "title": "Силен"
+  },
+  "songKey": "G / Em",
+  "songBPM": "70bpm - 3/4",
+  "songOriginalKey": "Оригинална Тоналност: C",
+  "songAuthor": "Stronger - Hillsong Worship",
+  "songTranslator": "Тодор Ботев",
+  "songData": [
+    [
+      [
+        {
+          "text": "1. От",
+          "chord": "G"
+        },
+        {
+          "text": "любов",
+          "chord": "C"
+        },
+        {
+          "text": "дойде",
+          "chord": "D"
+        },
+        {
+          "text": "за нас.",
+          "chord": "G"
+        }
+      ],
+      [
+        {
+          "text": "Умря",
+          "chord": "G"
+        },
+        {
+          "text": "на кръст",
+          "chord": "C"
+        },
+        {
+          "text": "смирен",
+          "chord": "D"
+        },
+        {
+          "text": "и сам.",
+          "chord": "G"
+        }
+      ],
+      [
+        {
+          "text": "Отне",
+          "chord": "G"
+        },
+        {
+          "text": "Срама",
+          "chord": "C"
+        },
+        {
+          "text": "и моя",
+          "chord": "D"
+        },
+        {
+          "text": "грях.",
+          "chord": "Em"
+        }
+      ],
+      [
+        {
+          "text": "И възкръсна",
+          "chord": "C"
+        },
+        {
+          "text": "в славата",
+          "chord": "D"
+        },
+        {
+          "text": "",
+          "chord": "G",
+          "offset": "10"
+        }
+      ]
+    ],
+    [
+      [
+        {
+          "text": "2. Верен",
+          "chord": "G"
+        },
+        {
+          "text": "си",
+          "chord": "C"
+        },
+        {
+          "text": "винаги",
+          "chord": "D"
+        },
+        {
+          "text": "",
+          "chord": "G",
+          "offset": "10"
+        }
+      ],
+      [
+        {
+          "text": "През"
+        },
+        {
+          "text": "бури,",
+          "chord": "C"
+        },
+        {
+          "text": "огън",
+          "chord": "D"
+        },
+        {
+          "text": "и беди",
+          "chord": "G"
+        }
+      ],
+      [
+        {
+          "text": "Чрез"
+        },
+        {
+          "text": "твойта",
+          "chord": "C"
+        },
+        {
+          "text": "истина",
+          "chord": "D"
+        },
+        {
+          "text": "във"
+        },
+        {
+          "text": "мен",
+          "chord": "Em"
+        }
+      ],
+      [
+        {
+          "text": "Живея днес",
+          "chord": "C"
+        },
+        {
+          "text": "освободен",
+          "chord": "D",
+          "offset": "-10"
+        },
+        {
+          "text": "",
+          "chord": "G",
+          "offset": "-10"
+        }
+      ]
+    ],
+    [
+      [
+        {
+          "text": "Пр:"
+        },
+        {
+          "text": "Ти",
+          "chord": "D"
+        },
+        {
+          "text": "Си мощен,",
+          "chord": "G"
+        },
+        {
+          "text": "Ти",
+          "chord": "G"
+        },
+        {
+          "text": "Си силен",
+          "chord": "D"
+        }
+      ],
+      [
+        {
+          "text": "Греха"
+        },
+        {
+          "text": "разчупи",
+          "chord": "Em"
+        },
+        {
+          "text": "и спаси ме.",
+          "chord": "C"
+        }
+      ],
+      [
+        {
+          "text": "И"
+        },
+        {
+          "text": "аз вярвам",
+          "chord": "G"
+        },
+        {
+          "text": "Той"
+        },
+        {
+          "text": "възкръсна",
+          "chord": "D"
+        }
+      ],
+      [
+        {
+          "text": "Исусе,"
+        },
+        {
+          "text": "Ти",
+          "chord": "C"
+        },
+        {
+          "text": "Си моя",
+          "chord": "D"
+        },
+        {
+          "text": "Бог!",
+          "chord": "G"
+        }
+      ]
+    ],
+    [
+      [
+        {
+          "text": "3. Моя",
+          "chord": "C"
+        },
+        {
+          "text": "крепост,",
+          "chord": "D"
+        },
+        {
+          "text": "канара",
+          "chord": "G"
+        }
+      ],
+      [
+        {
+          "text": "И надежда",
+          "chord": "C"
+        },
+        {
+          "text": "за",
+          "chord": "D"
+        },
+        {
+          "text": "света",
+          "chord": "G"
+        }
+      ],
+      [
+        {
+          "text": "Ти дойде",
+          "chord": "C"
+        },
+        {
+          "text": "и",
+          "chord": "D"
+        },
+        {
+          "text": "ме"
+        },
+        {
+          "text": "спаси",
+          "chord": "Em"
+        }
+      ],
+      [
+        {
+          "text": "На"
+        },
+        {
+          "text": "кръст",
+          "chord": "C"
+        },
+        {
+          "text": "умря - цена",
+          "chord": "D"
+        },
+        {
+          "text": "плати",
+          "chord": "G"
+        }
+      ]
+    ],
+    [
+      [
+        {
+          "text": "Мост:"
+        },
+        {
+          "text": "Господи",
+          "chord": "C"
+        },
+        {
+          "text": "бъди издигнат",
+          "chord": "D"
+        },
+        {
+          "text": "",
+          "chord": "Em",
+          "offset": "10"
+        }
+      ],
+      [
+        {
+          "text": "Бъди"
+        },
+        {
+          "text": "издигнат,",
+          "chord": "D"
+        },
+        {
+          "text": "бъди",
+          "chord": "G"
+        },
+        {
+          "text": "издигнат!",
+          "chord": "D"
+        }
+      ]
+    ]
+  ]
+}
