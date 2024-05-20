@@ -52,7 +52,7 @@ const keys = [
   },
   {
     text: "Числа",
-    id: "Числа",
+    id: "numbers",
   },
 ];
 
