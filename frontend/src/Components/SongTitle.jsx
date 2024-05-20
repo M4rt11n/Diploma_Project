@@ -51,8 +51,8 @@ const keys = [
     id: "H",
   },
   {
-    text: "Numbers",
-    id: "numbers",
+    text: "Числа",
+    id: "Числа",
   },
 ];
 
