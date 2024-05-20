@@ -4,7 +4,7 @@ const Fuse = require("fuse.js");
 
 // get all songs
 const getSongs = async (req, res) => {
-  const songs = await Song.find({}).sort({ createdAt: -1 });
+  const songs = await Song.find({}).sort({ songTitle: 1 });
 
   res.status(200).json(songs);
 };
