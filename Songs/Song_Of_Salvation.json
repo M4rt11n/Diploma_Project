@@ -1,0 +1,220 @@
+{
+    "songTitle": {
+      "title": "Песен за спасението"
+    },
+    "songKey": "D / Hm",
+    "songBPM": "85bpm - 4/4",
+    "songOriginalKey": "Оригинална Тоналност: D",
+    "songAuthor": "Song of Salvation - SuperBook",
+    "songTranslator": "Неизвестен",
+    "songData": [
+        [
+            [
+                {
+                    "text": "",
+                    "chord": "D"
+                },
+                {
+                    "text": "",
+                    "chord": "G",
+                    "offset": "50"
+                },
+                {
+                    "text": "",
+                    "chord": "A",
+                    "offset": "100"
+                }
+            ]
+        ],
+        [
+            [
+                {
+                    "text": "Господи, Ти",
+                    "chord": "D"
+                },
+                {
+                    "text": "на",
+                    "chord": "A"
+                },
+                {
+                    "text": "кръст"
+                },
+                {
+                    "text": "умря",
+                    "chord": "Hm"
+                }
+            ],
+            [
+                {
+                    "text": "възкръсна",
+                    "chord": "G"
+                },
+                {
+                    "text": "и",
+                    "chord": "D"
+                },
+                {
+                    "text": "спаси",
+                    "chord": "G"
+                },
+                {
+                    "text": "света",
+                    "chord": "D"
+                }
+            ],
+            [
+                {
+                    "text": "Моите",
+                    "chord": "D"
+                },
+                {
+                    "text": "Грехове",
+                    "chord": "A"
+                },
+                {
+                    "text": "прости",
+                    "chord": "Hm"
+                }
+            ],
+            [
+                {
+                    "text": "Спасител",
+                    "chord": "G"
+                },
+                {
+                    "text": "мой",
+                    "chord": "D"
+                },
+                {
+                    "text": "Приятел",
+                    "chord": "G"
+                },
+                {
+                    "text": "Си",
+                    "chord": "D"
+                }
+            ]
+        ],
+        [
+            [
+                {
+                    "text": "Нов",
+                    "chord": "G"
+                },
+                {
+                    "text": "живот аз"
+                },
+                {
+                    "text": "имам",
+                    "chord": "A"
+                },
+                {
+                    "text": "днес",
+                    "chord": "Hm"
+                }
+            ],
+            [
+                {
+                    "text": "със"
+                },
+                {
+                    "text": "Теб,",
+                    "chord": "G"
+                },
+                {
+                    "text": "Исус",
+                    "chord": "D"
+                },
+                {
+                    "text": "завинаги",
+                    "chord": "A"
+                },
+                {
+                    "text": "",
+                    "chord": "D"
+                }
+            ]
+        ],
+        [
+            [
+                {
+                    "text": "Нов",
+                    "chord": "G"
+                },
+                {
+                    "text": "живот аз"
+                },
+                {
+                    "text": "имам",
+                    "chord": "A"
+                },
+                {
+                    "text": "днес",
+                    "chord": "Hm"
+                }
+            ],
+            [
+                {
+                    "text": "със"
+                },
+                {
+                    "text": "Теб,",
+                    "chord": "G"
+                },
+                {
+                    "text": "Исус",
+                    "chord": "D"
+                },
+                {
+                    "text": "завинаги",
+                    "chord": "A"
+                },
+                {
+                    "text": "",
+                    "chord": "D"
+                }
+            ],
+            [
+                {
+                    "text": "Нов",
+                    "chord": "G"
+                },
+                {
+                    "text": "живот аз"
+                },
+                {
+                    "text": "имам",
+                    "chord": "A"
+                },
+                {
+                    "text": "днес",
+                    "chord": "Hm"
+                }
+            ],
+            [
+                {
+                    "text": "И"
+                },
+                {
+                    "text": "спасение",
+                    "chord": "G"
+                },
+                {
+                    "text": "в Теб,",
+                    "chord": "D"
+                },
+                {
+                    "text": "Исус"
+                },
+                {
+                    "text": "сега",
+                    "chord": "A"
+                },
+                {
+                    "text": "и винаги",
+                    "chord": "D"
+                }
+            ]
+        ]
+    ]
+}
